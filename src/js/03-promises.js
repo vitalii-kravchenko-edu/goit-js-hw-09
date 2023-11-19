@@ -6,6 +6,7 @@ let step = 0;
 let amount = 0;
 let currentDelay = 0;
 let i = 0;
+let timer;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -29,7 +30,7 @@ form.addEventListener('submit', (e) => {
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
-    setTimeout(() => {
+    timer = setTimeout(() => {
       if (shouldResolve) {
         resolve({position, delay});
       } else {
